@@ -3,6 +3,15 @@
 #country is not added as class due to inability to leave country.
 #the user will have decisions based on exploring, and other interactions.
 
+def Death():
+	print ("you have died.")
+	print ("play again?")
+	user = input("> ")
+	if user.lower() == "yes":
+		return Game()
+	elif user.lower() == "no":
+		sys.exit()
+
 class Woods():
 
 	def woodsStart():
@@ -140,8 +149,8 @@ class Woods():
 
 	def woodsN2():
 			print ("you tripped on a stick and smashed your head on a rock.")
-			print ("you can go north, east, south, or west.")
-			return LORdeath.death
+#			print ("you can go north, east, south, or west.")
+			return death()
 			"""if user.lower() == "north":
 				return Woods.woodsN3()
 			elif user.lower() == "east":
@@ -515,188 +524,188 @@ class Woods():
 			return Woods.woodsNW2_2
 
 	def woodsNW1_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW1_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW2_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW2_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW2_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW2_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW3_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW3_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW3_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW3_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW4_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW4_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW4_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsNW4_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE1_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE1_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE1_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE1_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE2_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE2_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE2_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE2_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE3_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE3_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE3_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE3_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE4_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE4_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE4_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSE4_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW1_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW1_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW1_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW1_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW2_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW2_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW2_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW2_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW3_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW3_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW3_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW3_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW4_1():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW4_2():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW4_3():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 	def woodsSW4_4():
-
-		pass
+		print ("nothing here but death")
+		return death()
 
 class Plains():
 

@@ -4,7 +4,6 @@ import LORplaces
 import LORcollectables
 import LORcast
 import LORprices
-import LORdeath
 import sys
 import random
 
@@ -33,6 +32,33 @@ print ("would you like to play 'Legacy of Rex'? Yes or no?")
 
 
 #contains all the areas to visit.
+
+	
+
+#    class Map:
+#            def __init__(self):
+#                    self.locations = {}
+#                    self.places = {}
+#            def addPlace(self, name, coord, handle):
+#                    """Add a place to the map."""
+#                    self.locations[coord] = handle
+#                    self.places[name] = coord
+#            def getPlace(self, coord):
+#                    """Find a place by it's given coordinate."""
+#                    return self.locations[coord]
+#            def findPlace(self, name):
+#                    """Find a place by it's given name."""
+#                    return self.locations[self.places[name]]
+#            def seekCoord(self, handle):
+#                    """Find a coord by a handle object."""
+#                    for _coord, _handle in self.locations.iteritems():
+#                            if( _handle == handle ):
+#                                    return _coord
+
+
+
+
+
 class Map():
 
 	places = {
@@ -143,6 +169,14 @@ class Game(object):
 			print ("\n-----------------------------------------")
 			next_place = next_place()
 			#current_place = self.place_map.next_place(next_place_name)
+			
+def help_and_quit():
+	user = input("> ")
+	if user.lower() == "exit" or user.lower() == "quit":
+		sys.exit()
+	elif user.lower() == "assist":
+	    print ("stuck? try using a basic verb: touch, feel, take, taste, eat, etc...some options are hidden! So try something new! HINT: it's a verb")
+
 
 
 #renamed variables to run the game and load the map at its start point for a 
@@ -156,10 +190,9 @@ if user.lower() == "yes":
     lor_game.play()
 elif user.lower() == "no":
    sys.exit()
-elif user.lower() == "assist":
-    print ("stuck? try using a basic verb: touch, feel, take, taste, eat, etc...some options are hidden! So try something new! HINT: it's a verb")
 else:
     print ("what? I'm not sure what you meant. Try something else perhaps? If you need help, type 'assist'.")
+
 
 #use this to save a file or load a file for your progress
 """if user.lower() == "save":
