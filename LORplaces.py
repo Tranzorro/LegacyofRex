@@ -2,15 +2,8 @@
 #we will start with the woods, and work our way to the cities.
 #country is not added as class due to inability to leave country.
 #the user will have decisions based on exploring, and other interactions.
-
-def Death():
-	print ("you have died.")
-	print ("play again?")
-	user = input("> ")
-	if user.lower() == "yes":
-		return Game()
-	elif user.lower() == "no":
-		sys.exit()
+import LORdeath
+import LORplayerstats
 
 class Woods():
 
@@ -54,7 +47,7 @@ class Woods():
 				print ("you look at the largest tree in the area, and see that it's rather old looking. you could swear")
 				print ("it has a face on it, but it's a tree... why would it have a face? do you think it would talk to you")
 				print ("if you tried to talk to it? it seems to have quite a bit of life to it, as its leaves are all full of")
-				print ("bright green colors. the branches even ahve a few flowers growing off them. its really quite beautiful.")
+				print ("bright green colors. the branches even have a few flowers growing off them. its really quite beautiful.")
 				return Woods.woodshome
 			elif user.lower() == "self":
 				print ("you attempt to look at yourself, but there is nothing reflective enough to see yourself in! try to locate some")
@@ -100,8 +93,8 @@ class Woods():
 				print ("You don't have anything to eat yet. try looking around or buying some!")
 				return Woods.woodshome
 			elif user.lower() == "object":
-				print ("You pick up a stick and lick it, it tastes.... horrible. but full of fiber! you think you saw a catterpillar on it...")
-				print (" but it's nowhere to be found now. though your tongue seems to feel rather odd and tingly right now...")
+				print ("You pick up a stick and lick it, it tastes... horrible. but full of fiber! you think you saw a catterpillar on it...")
+				print (" but it's nowhere to be found now. though your tongue seems to feel rather odd and tingly...")
 				return Woods.woodshome
 		elif user.lower() == "inventory" or user.lower() == "bag":
 			print ("You don't have an inventory yet! sorry, have to put that in still... damned lazy coder!")
@@ -150,7 +143,7 @@ class Woods():
 	def woodsN2():
 			print ("you tripped on a stick and smashed your head on a rock.")
 #			print ("you can go north, east, south, or west.")
-			return death()
+			return LORdeath.Death
 			"""if user.lower() == "north":
 				return Woods.woodsN3()
 			elif user.lower() == "east":

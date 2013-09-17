@@ -6,7 +6,9 @@ import LORcast
 import LORprices
 import sys
 import random
+import os
 
+os.system("color 0E") #green text. type "color /?" for color id's
 #this is the warning label. adult content will be added into this game!.. eventually...
 print ("WARNING")
 print()
@@ -166,16 +168,17 @@ class Game(object):
 		next_place = Map.places["woodsStart"]
 
 		while True:
+			os.system('cls')
 			print ("\n-----------------------------------------")
 			next_place = next_place()
 			#current_place = self.place_map.next_place(next_place_name)
 			
-def help_and_quit():
-	user = input("> ")
-	if user.lower() == "exit" or user.lower() == "quit":
-		sys.exit()
-	elif user.lower() == "assist":
-	    print ("stuck? try using a basic verb: touch, feel, take, taste, eat, etc...some options are hidden! So try something new! HINT: it's a verb")
+	def help_and_quit():
+		user = input("> ")
+		if user.lower() == "exit" or user.lower() == "quit":
+			sys.exit()
+		elif user.lower() == "assist":
+			print ("stuck? try using a basic verb: touch, feel, take, taste, eat, etc...some options are hidden! So try something new! HINT: it's a verb")
 
 
 
@@ -187,9 +190,10 @@ lor_game = Game(lor_map)
 #waits for user input to start the game or quit the game.
 user = input("> ")
 if user.lower() == "yes":
-    lor_game.play()
+	lor_game.play()
 elif user.lower() == "no":
-   sys.exit()
+	os.system("cls")
+	sys.exit()
 else:
     print ("what? I'm not sure what you meant. Try something else perhaps? If you need help, type 'assist'.")
 
