@@ -7,6 +7,7 @@ import LORprices
 import sys
 import random
 import os
+import textwrap
 
 os.system("color 0E") #green text. type "color /?" for color id's
 #this is the warning label. adult content will be added into this game!.. eventually...
@@ -148,7 +149,6 @@ class Map():
  	'woodsSW4_3': LORplaces.Woods.woodsSW4_3,
 	'woodsSW4_4': LORplaces.Woods.woodsSW4_4,
 	}
-
 	def __init__(self, start_place):
 		self.start_place = start_place
 
@@ -168,7 +168,7 @@ class Game(object):
 		next_place = Map.places["woodsStart"]
 
 		while True:
-			os.system('cls')
+			#os.system('cls')
 			print ("\n-----------------------------------------")
 			next_place = next_place()
 			#current_place = self.place_map.next_place(next_place_name)

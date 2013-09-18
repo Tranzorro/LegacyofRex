@@ -34,7 +34,7 @@ def Death():
 		print ("play again?")
 		user = input("> ")
 		if user.lower() == "yes":
-			return Game()
+			return LOR.Game()
 		elif user.lower() == "no":
 			os.system('cls')
 			sys.exit()
