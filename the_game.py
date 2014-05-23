@@ -3,23 +3,23 @@ import pygame
 from math import exp, log
 import os
 from eztext import *
+from Characters import *
+#from the_game_screen import *
 #start the pygame engine here:
 pygame.init()
 clock = pygame.time.Clock()  # controls how fast the screen updates at max.
 size = (800,750)  # width and hight
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("The Legacy of Rex")
-#some screen colors:
+font = pygame.font.Font (None, 25)
+stat_font = pygame.font.Font (None, 25)
+logo_font = pygame.font.Font ("C:/Windows/Fonts/impact.ttf", 80)
+map_font = pygame.font.Font ("C:/Windows/Fonts/impact.ttf", 25)
 black = (0,0,0)
 white = (255,255,255)
 red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
-font = pygame.font.Font (None, 25)
-stat_font = pygame.font.Font (None, 25)
-logo_font = pygame.font.Font ("C:/Windows/Fonts/impact.ttf", 80)
-map_font = pygame.font.Font ("C:/Windows/Fonts/impact.ttf", 25)
-#boxes for holding yoru text will be listed here. try to keep only 3:
 txtbx = T_input(x=10, y=730, font=stat_font, maxlength=90, color=(white), prompt='>: ')
 #this space is used for all global functions and variables to be used within all other code blocks, such as print_slow.
 def print_slow():
@@ -42,6 +42,9 @@ while not done:
 	for event in events: #user did something
 		if event.type == QUIT:  #if user clicked close
 			done = True #changes while condition to make it end, and exit loop.
+		elif event.type == KEYDOWN:
+			if event.key == K_ESCAPE:
+				done = True
 	txtbx.update (events)
 
 	#ALL EVENT PROCESSING SHOULD GO ABOVE THIS COMMENT
@@ -60,41 +63,43 @@ while not done:
 	game_text = font.render("you will see this scrolling around in this window at some point!", True, white)
 	screen.blit(game_text, [15, 427]) # this will show the text above as indicated.
 
-	#character stat windows
+		#character stat windows
 	#stat window 1
 	pygame.draw.rect(screen, white, [5, 5, 260, 200], 2) # this will be the character stats window rectangle. this will hole 4 character stat slots.
-	character_stats1 = stat_font.render("Name: lord of awesomness" , True, white) #limit all names by 18 characters
-	character_stats1_a = stat_font.render("HP: 100", True, white)
-	character_stats1_a_a = stat_font.render("Def: 1", True, white)
-	character_stats1_a_b = stat_font.render("Atk: 3", True, white)
-	character_stats1_b = stat_font.render("MP: 100", True, white)
-	character_stats1_b_a = stat_font.render("San: 100", True, white)
-	character_stats1_b_b = stat_font.render("Sta: 100", True, white)
-	character_stats1_c = stat_font.render("Status: tox, bur, cur, pet, slw", True, white)
-	character_stats1_c_a = stat_font.render("ice, bli, zom, par, sho, ins", True, white)
-	character_stats1_E = stat_font.render("Path: theif", True, white)
-	character_stats1_E_a = stat_font.render("Head: Headpiece of epicness", True, white) #limit item names for this slot to 22 characters
-	character_stats1_E_b = stat_font.render("Chest: Chestpiece of epicness", True, white) # limit names to 22
-	character_stats1_E_c = stat_font.render("Legs: Legplates of epicness", True, white) # limit names to 23
-	character_stats1_E_d = stat_font.render("Feet: Boots of asskicking", True, white) #limit names to 23
-	character_stats1_E_e = stat_font.render("Lhand: fist of fisting", True, white) # limit names to 23
-	character_stats1_E_f = stat_font.render("Rhand: fist of fisting", True, white) # limit names to 23
-	screen.blit(character_stats1, [15, 15]) #x, y
-	screen.blit(character_stats1_a, [15, 30]) # x, y
-	screen.blit(character_stats1_a_a, [100, 30]) #x, y
-	screen.blit(character_stats1_a_b, [185, 30])
-	screen.blit(character_stats1_b, [15, 45]) # x, y
-	screen.blit(character_stats1_b_a , [100, 45]) #x, y
-	screen.blit(character_stats1_b_b, [185, 45])
-	screen.blit(character_stats1_c, [15, 60]) # x, y
-	screen.blit(character_stats1_c_a, [15, 75]) # x, y
-	screen.blit(character_stats1_E, [15, 90]) # x, y
-	screen.blit(character_stats1_E_a, [15, 105]) # x, y
-	screen.blit(character_stats1_E_b, [15, 120]) # x, y
-	screen.blit(character_stats1_E_c, [15, 135]) # x, y
-	screen.blit(character_stats1_E_d, [15, 150]) # x, y
-	screen.blit(character_stats1_E_e, [15, 165]) # x, y
-	screen.blit(character_stats1_E_f, [15, 180]) # x, y
+	def StatWindow1():
+		char_Name = stat_font.render("Name: lord of awesomness" , True, white) #limit all names by 18 characters
+		char_Health = stat_font.render("HP: 100", True, white)
+		char_Defence = stat_font.render("Def: 1", True, white)
+		char_Attack = stat_font.render("Atk: 3", True, white)
+		char_Magic = stat_font.render("MP: 100", True, white)
+		char_Sanity = stat_font.render("San: 100", True, white)
+		char_Stamina = stat_font.render("Sta: 100", True, white)
+		char_Status1 = stat_font.render("Status: tox, bur, cur, pet, slw", True, white)
+		char_Status2 = stat_font.render("ice, bli, zom, par, sho, ins", True, white)
+		char_Path = stat_font.render("Path: theif", True, white)
+		char_Head = stat_font.render("Head: Headpiece of epicness", True, white) #limit item names for this slot to 22 characters
+		char_Chest = stat_font.render("Chest: Chestpiece of epicness", True, white) # limit names to 22
+		char_Legs = stat_font.render("Legs: Legplates of epicness", True, white) # limit names to 23
+		char_Feet = stat_font.render("Feet: Boots of asskicking", True, white) #limit names to 23
+		char_LeftHand = stat_font.render("Lhand: fist of fisting", True, white) # limit names to 23
+		char_RightHand = stat_font.render("Rhand: fist of fisting", True, white) # limit names to 23
+	screen.blit(StatWindow1(char_Name), [15, 15])
+	#screen.blit(char_Name, [15, 15]) #x, y
+	screen.blit(char_Health, [15, 30]) # x, y
+	screen.blit(char_Defence, [100, 30]) #x, y
+	screen.blit(char_Attack, [185, 30])
+	screen.blit(char_Magic, [15, 45]) # x, y
+	screen.blit(char_Sanity, [100, 45]) #x, y
+	screen.blit(char_Stamina, [185, 45])
+	screen.blit(char_Status1, [15, 60]) # x, y
+	screen.blit(char_Status2, [15, 75]) # x, y
+	screen.blit(char_Path, [15, 90]) # x, y
+	screen.blit(char_Head, [15, 105]) # x, y
+	screen.blit(char_Chest, [15, 120]) # x, y
+	screen.blit(char_Legs, [15, 135]) # x, y
+	screen.blit(char_Feet, [15, 150]) # x, y
+	screen.blit(char_LeftHand, [15, 165]) # x, y
+	screen.blit(char_RightHand, [15, 180]) # x, y
 
 	#stat window 2
 	pygame.draw.rect(screen, white, [264, 5, 260, 200], 2) # 2nd spot character window
@@ -130,7 +135,6 @@ while not done:
 	screen.blit(character_stats2_E_d, [274, 150]) # x, y
 	screen.blit(character_stats2_E_e, [274, 165]) # x, y
 	screen.blit(character_stats2_E_f, [274, 180]) # x, y
-
 
 	#stat window 3
 	pygame.draw.rect(screen, white, [5, 214, 260, 200], 2) # 3rd spot character window
@@ -202,7 +206,6 @@ while not done:
 	screen.blit(character_stats4_E_e, [274, 374]) # x, y
 	screen.blit(character_stats4_E_f, [274, 389]) # x, y
 
-	#logo location
 	logo = logo_font.render("LEGACY", True, white)
 	logo_1 = logo_font.render("OF", True, white)
 	logo_2 = logo_font.render("REX", True, white)
@@ -210,7 +213,6 @@ while not done:
 	screen.blit(logo_1,[620,60])
 	screen.blit(logo_2,[600, 130])
 
-	#additional info window/map. does not show map till you buy one!
 	pygame.draw.rect(screen, white, [534, 214, 260, 200], 2)
 	map_text = map_font.render ("No map installed yet.", True, white)
 	map_text1 = map_font.render ("Sorry!", True, white)
