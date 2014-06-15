@@ -1,5 +1,5 @@
 # imports go here for global values that the game can use at any time, anywhere in all code blocks.
-import pygame, os
+import pygame, os, sys
 from math import exp, log
 from eztext import *
 import Characters
@@ -302,24 +302,32 @@ class textBox(pygame.sprite.Sprite):  # I don't understand how most of this work
 				self.__createText__() 
 # """
 # the main program loop:::::::::::::::
-Game.screen.fill(Game.black)
 # loop until the user clicks the close button.
-done = False # game ending variable. when True, the game will end.
 #:::::::::::::::::::MAIN PROGRAM LOOP::::::::::::::::::::
-while not done:
-	events = pygame.event.get()
-	for event in events: # user did something
-		if event.type == QUIT:  # if user clicked close
-			done = True # changes while condition to make it end, and exit loop.
-		elif event.type == KEYDOWN:
-			if event.key == K_ESCAPE:
-				done = True
-	# ORGANIZE THIS IN A WAY THAT DOESN'T CAUSE THE GAME TO EAT YOUR CPU. IT RUNS TOO MANY LOOPS TO RENDER EVERYTHING CONSTANTLY.
-	Game.txtbx.update (events) # this lets the input box show what you are typing in real time. should this fail to clear during the use of backspace, you have somehow broken it by moving this exact line someplace it shouldn't be!
+def run_game():
+	Game.screen.fill(Game.black)
+	done = False # game ending variable. when True, the game will end.
 	Game.render_info() # shows all in game info in real time
 	Game.render_stats() # character stat windows
 	Game.render_map() # shows the logo of the game, and the map of where you are. only shows true map once you get one in game.
 	Game.txtbx.draw(Game.screen) # shows the input box to type in at bottom of screen
 	pygame.display.flip() # finally displays everything above.
-	clock.tick(30) # Limit to 30 fps
-pygame.quit()
+	try:
+		while not done:
+			events = pygame.event.get()
+			for event in events: # user did something
+				if event.type == QUIT:  # if user clicked close
+					done = True # changes while condition to make it end, and exit loop.
+				elif event.type == KEYDOWN:
+					if event.key == K_ESCAPE:
+						done = True
+			# ORGANIZE THIS IN A WAY THAT DOESN'T CAUSE THE GAME TO EAT YOUR CPU. IT RUNS TOO MANY LOOPS TO RENDER EVERYTHING CONSTANTLY.
+			Game.txtbx.update (events) # this lets the input box show what you are typing in real time. should this fail to clear during the use of backspace, you have somehow broken it by moving this exact line someplace it shouldn't be!
+			Game.txtbx.draw(Game.screen) # shows the input box to type in at bottom of screen
+			pygame.display.flip() # finally displays everything above.
+			clock.tick(30) # Limit to 30 fps
+	finally:
+		pygame.quit()
+		sys.exit()
+if __name__=="__main__":
+	run_game()
